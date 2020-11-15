@@ -1,25 +1,20 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import Pokemons from "../src/components/pokemon/Pokemons";
+import { HashRouter as Router, Route, Switch } from "react-router-dom";
+import Pokemon from "../src/components/pokemon/Pokemon";
+import Nav from "../src/components/navigator/Nav";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <div className="App">
+        <Route exact path="/" component={Nav} />
+        <Switch>
+          <Route exact path="/" component={Pokemons} />
+          <Route exact path="/pokemon/:pokemonIndex" component={Pokemon} />{" "}
+        </Switch>
+      </div>
+    </Router>
   );
 }
 
